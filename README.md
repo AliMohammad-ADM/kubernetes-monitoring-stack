@@ -15,17 +15,23 @@ The objective is to automate deployment, monitor workloads, collect logs, visual
 
 ---
 
-## Project Status
+## Progress
 
-🚧 Day 1 – Repository initialization
-
----
-
-## Current Features
-
-- Repository created
-- Folder structure initialized
-- Git configured
+- [x] Git & GitHub Setup
+- [x] Repository Initialization
+- [ ] k3s Cluster
+- [ ] NFS Storage
+- [ ] Loki
+- [ ] Promtail
+- [ ] Grafana
+- [ ] Prometheus
+- [ ] Alertmanager
+- [ ] Demo Applications
+- [ ] Ansible Automation
+- [ ] Documentation
+- [ ] Architecture Diagram
+- [ ] PowerPoint
+- [ ] Final Testing
 
 ---
 
