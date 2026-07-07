@@ -19,7 +19,8 @@ The objective is to automate deployment, monitor workloads, collect logs, visual
 
 - [x] Git & GitHub Setup
 - [x] Repository Initialization
-- [ ] k3s Cluster
+- [x] k3s Cluster
+- [x] Monitoring Namespace
 - [ ] NFS Storage
 - [ ] Loki
 - [ ] Promtail
@@ -37,4 +38,4 @@ The objective is to automate deployment, monitor workloads, collect logs, visual
 
 ## Author
 
-Bruno
+Ali Mohammad
