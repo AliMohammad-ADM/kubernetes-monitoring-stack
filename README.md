@@ -21,6 +21,7 @@ The objective is to automate deployment, monitor workloads, collect logs, visual
 - [x] Repository Initialization
 - [x] k3s Cluster
 - [x] Monitoring Namespace
+- [x] Storage Foundation
 - [ ] NFS Storage
 - [ ] Loki
 - [ ] Promtail

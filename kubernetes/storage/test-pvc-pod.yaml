@@ -1,0 +1,22 @@
+# Temporary Pod used to verify dynamic PVC provisioning
+# with the local-path StorageClass (WaitForFirstConsumer).
+#
+# This Pod is not part of the monitoring stack and can be
+# safely deleted after storage validation.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-pod
+  namespace: monitoring
+spec:
+  containers:
+    - name: test
+      image: busybox
+      command: ["sleep", "3600"]
+      volumeMounts:
+        - name: storage
+          mountPath: /data
+  volumes:
+    - name: storage
+      persistentVolumeClaim:
+        claimName: test-pvc
