@@ -23,7 +23,7 @@ The objective is to automate deployment, monitor workloads, collect logs, visual
 - [x] Monitoring Namespace
 - [x] Storage Foundation
 - [ ] NFS Storage
-- [ ] Loki
+- [x] Loki
 - [ ] Promtail
 - [ ] Grafana
 - [ ] Prometheus
