@@ -24,7 +24,7 @@ The objective is to automate deployment, monitor workloads, collect logs, visual
 - [x] Storage Foundation
 - [ ] NFS Storage
 - [x] Loki
-- [ ] Promtail
+- [x] Promtail
 - [ ] Grafana
 - [ ] Prometheus
 - [ ] Alertmanager

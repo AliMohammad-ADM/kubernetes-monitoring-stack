@@ -1,0 +1,19 @@
+kind: ClusterRole
+
+metadata:
+  name: promtail
+
+rules:
+  - apiGroups:
+      - ""
+
+    resources:
+      - pods
+      - nodes
+      - services
+      - namespaces
+
+    verbs:
+      - get
+      - list
+      - watch
