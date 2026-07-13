@@ -25,7 +25,7 @@ The objective is to automate deployment, monitor workloads, collect logs, visual
 - [ ] NFS Storage
 - [x] Loki
 - [x] Promtail
-- [ ] Grafana
+- [x] Grafana
 - [ ] Prometheus
 - [ ] Alertmanager
 - [ ] Demo Applications
@@ -36,6 +36,21 @@ The objective is to automate deployment, monitor workloads, collect logs, visual
 - [ ] Final Testing
 
 ---
+
+## Current Status
+
+Grafana, Loki, and Promtail have been deployed manually.
+
+The Promtail deployment was successfully created and verified, including:
+
+- Kubernetes API access
+- RBAC configuration
+- Filesystem permissions
+- Loki connectivity
+
+Despite successful deployment and validation, Promtail discovers zero Kubernetes log targets.
+
+The next project milestone is migrating the logging pipeline to **Grafana Alloy**, the actively maintained successor to the deprecated Promtail project.
 
 ## Author
 
