@@ -1,0 +1,118 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: alloy-config
+  namespace: monitoring
+data:
+  config.alloy: |
+    // ------------------------------------------------------------
+    // Discover Kubernetes Pods running on the current node
+    // ------------------------------------------------------------
+    discovery.kubernetes "pod" {
+      role = "pod"
+
+      selectors {
+        role  = "pod"
+        field = "spec.nodeName=" + coalesce(sys.env("HOSTNAME"), constants.hostname)
+      }
+    }
+
+    // ------------------------------------------------------------
+    // Apply relabeling rules
+    // ------------------------------------------------------------
+    discovery.relabel "pod_logs" {
+      targets = discovery.kubernetes.pod.targets
+
+      // Namespace label
+      rule {
+        source_labels = ["__meta_kubernetes_namespace"]
+        action = "replace"
+        target_label = "namespace"
+      }
+
+      // Pod label
+      rule {
+        source_labels = ["__meta_kubernetes_pod_name"]
+        action = "replace"
+        target_label = "pod"
+      }
+
+      // Container label
+      rule {
+        source_labels = ["__meta_kubernetes_pod_container_name"]
+        action = "replace"
+        target_label = "container"
+      }
+
+      // Application label
+      rule {
+        source_labels = ["__meta_kubernetes_pod_label_app_kubernetes_io_name"]
+        action = "replace"
+        target_label = "app"
+      }
+
+      // Job label (namespace/container)
+      rule {
+        source_labels = [
+          "__meta_kubernetes_namespace",
+          "__meta_kubernetes_pod_container_name",
+        ]
+        separator = "/"
+        action = "replace"
+        target_label = "job"
+        replacement = "$1"
+      }
+
+      // Log file path
+      rule {
+        source_labels = [
+          "__meta_kubernetes_pod_uid",
+          "__meta_kubernetes_pod_container_name",
+        ]
+        separator = "/"
+        action = "replace"
+        target_label = "__path__"
+        replacement = "/var/log/pods/*$1/*.log"
+      }
+
+      // Container runtime
+      rule {
+        source_labels = ["__meta_kubernetes_pod_container_id"]
+        action = "replace"
+        target_label = "container_runtime"
+        regex = `^(\S+):\/\/.+$`
+        replacement = "$1"
+      }
+    }
+
+    // ------------------------------------------------------------
+    // Read logs from Kubernetes Pods
+    // ------------------------------------------------------------
+    loki.source.kubernetes "pod_logs" {
+      targets    = discovery.relabel.pod_logs.output
+      forward_to = [loki.process.pod_logs.receiver]
+    }
+
+    // ------------------------------------------------------------
+    // Process logs
+    // ------------------------------------------------------------
+    loki.process "pod_logs" {
+
+      stage.static_labels {
+        values = {
+          cluster = "monitoring-lab",
+        }
+      }
+
+      forward_to = [loki.write.logs.receiver]
+    }
+
+    // ------------------------------------------------------------
+    // Send logs to Loki
+    // ------------------------------------------------------------
+    loki.write "logs" {
+
+      endpoint {
+        url = "http://loki:3100/loki/api/v1/push"
+      }
+    }

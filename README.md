@@ -5,7 +5,7 @@
 This project demonstrates how to deploy a production-inspired monitoring and logging platform on Kubernetes using:
 
 - Loki
-- Promtail
+- Grafana Alloy
 - Grafana
 - Prometheus
 - Alertmanager
@@ -24,7 +24,7 @@ The objective is to automate deployment, monitor workloads, collect logs, visual
 - [x] Storage Foundation
 - [ ] NFS Storage
 - [x] Loki
-- [x] Promtail
+- [x] Grafana Alloy
 - [x] Grafana
 - [ ] Prometheus
 - [ ] Alertmanager
@@ -39,18 +39,24 @@ The objective is to automate deployment, monitor workloads, collect logs, visual
 
 ## Current Status
 
-Grafana, Loki, and Promtail have been deployed manually.
+Grafana, Loki, and Grafana Alloy have been deployed manually.
 
-The Promtail deployment was successfully created and verified, including:
+The logging pipeline has been successfully migrated from Promtail to Grafana Alloy, the actively maintained successor to the deprecated Promtail project.
 
-- Kubernetes API access
+The Alloy deployment has been successfully created and verified, including:
+
+- Kubernetes API discovery
 - RBAC configuration
-- Filesystem permissions
+- Pod log collection
+- Log processing pipeline
 - Loki connectivity
+- Grafana log visualization
 
-Despite successful deployment and validation, Promtail discovers zero Kubernetes log targets.
+Kubernetes logs are now successfully collected by Grafana Alloy, stored in Loki, and visualized through Grafana Explore and Loki dashboards.
 
-The next project milestone is migrating the logging pipeline to **Grafana Alloy**, the actively maintained successor to the deprecated Promtail project.
+Future enhancement:
+
+- Extend the existing Alloy DaemonSet to collect Prometheus metrics and replace Node Exporter.
 
 ## Author
 
