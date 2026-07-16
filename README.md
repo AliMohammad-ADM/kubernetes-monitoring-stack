@@ -58,6 +58,8 @@ Future enhancement:
 
 - Extend the existing Alloy DaemonSet to collect Prometheus metrics and replace Node Exporter.
 
+- The logging stack has been fully validated using a Kubernetes demo application, confirming successful end-to-end log collection from application → Alloy → Loki → Grafana.
+
 ## Author
 
 Ali Mohammad
