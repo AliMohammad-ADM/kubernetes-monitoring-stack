@@ -26,7 +26,8 @@ The objective is to automate deployment, monitor workloads, collect logs, visual
 - [x] Loki
 - [x] Grafana Alloy
 - [x] Grafana
-- [ ] Prometheus
+- [x] Prometheus
+- [x] Node Exporter
 - [ ] Alertmanager
 - [ ] Demo Applications
 - [ ] Ansible Automation
@@ -53,6 +54,8 @@ The Alloy deployment has been successfully created and verified, including:
 - Grafana log visualization
 
 Kubernetes logs are now successfully collected by Grafana Alloy, stored in Loki, and visualized through Grafana Explore and Loki dashboards.
+
+Prometheus and Node Exporter have been successfully deployed and integrated with Grafana. Prometheus is scraping metrics through Kubernetes service discovery with relabeling, and metrics are available in Grafana Explore for visualization.
 
 Future enhancement:
 
