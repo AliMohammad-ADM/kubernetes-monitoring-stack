@@ -8,6 +8,7 @@ This project demonstrates how to deploy a production-inspired monitoring and log
 - Grafana Alloy
 - Grafana
 - Prometheus
+- Node Exporter
 - Alertmanager
 - Ansible
 
@@ -57,11 +58,11 @@ Kubernetes logs are now successfully collected by Grafana Alloy, stored in Loki,
 
 Prometheus and Node Exporter have been successfully deployed and integrated with Grafana. Prometheus is scraping metrics through Kubernetes service discovery with relabeling, and metrics are available in Grafana Explore for visualization.
 
+Diagnosed and resolved a cross-node Flannel networking issue caused by firewalld zone configuration on Rocky Linux.
+
 Future enhancement:
 
 - Extend the existing Alloy DaemonSet to collect Prometheus metrics and replace Node Exporter.
-
-- The logging stack has been fully validated using a Kubernetes demo application, confirming successful end-to-end log collection from application → Alloy → Loki → Grafana.
 
 ## Author
 
