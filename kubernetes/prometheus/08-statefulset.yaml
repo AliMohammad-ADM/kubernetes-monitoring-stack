@@ -67,6 +67,9 @@ spec:
             - name: prometheus-data
               mountPath: /prometheus
 
+            - name: alert-rules
+              mountPath: /etc/prometheus/rules
+
       volumes:
         - name: config
           configMap:
@@ -75,3 +78,8 @@ spec:
         - name: prometheus-data
           persistentVolumeClaim:
             claimName: prometheus-data
+
+        - name: alert-rules
+          configMap:
+            name: prometheus-alert-rules
+

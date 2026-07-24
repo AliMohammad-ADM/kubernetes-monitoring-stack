@@ -29,8 +29,8 @@ The objective is to automate deployment, monitor workloads, collect logs, visual
 - [x] Grafana
 - [x] Prometheus
 - [x] Node Exporter
-- [ ] Alertmanager
-- [ ] Demo Applications
+- [x} Alertmanager
+- [x] Demo Applications
 - [ ] Ansible Automation
 - [ ] Documentation
 - [ ] Architecture Diagram
@@ -60,9 +60,71 @@ Prometheus and Node Exporter have been successfully deployed and integrated with
 
 Diagnosed and resolved a cross-node Flannel networking issue caused by firewalld zone configuration on Rocky Linux.
 
+Successfully deployed Alertmanager and configured to route alerts into telegram reciever.
+
 Future enhancement:
 
 - Extend the existing Alloy DaemonSet to collect Prometheus metrics and replace Node Exporter.
+- Automate Setting up the monitoring platform using ansible
+
+---
+
+## Features
+
+- Manual Kubernetes deployment (no Helm)
+- Centralized log aggregation with Loki
+- Log collection using Grafana Alloy
+- Metrics collection with Prometheus
+- Node monitoring using Node Exporter
+- Visualization with Grafana
+- Telegram alert notifications
+- Persistent storage using PVCs
+
+---
+
+## Challenges Solved
+
+- Kubernetes Service discovery
+- Pod-to-Pod networking debugging
+- firewalld and Flannel VXLAN troubleshooting
+- Node Exporter connectivity issues
+- Alertmanager configuration using Secrets
+- Dynamic configuration generation with initContainers
+- Telegram integration and Markdown parsing issues
+
+---
+
+## Architecture
+
+### Monitoring Pipeline
+
+Application Logs
+        │
+        ▼
+Grafana Alloy
+        │
+        ▼
+Loki
+        │
+        ▼
+Grafana
+
+----------------------------
+
+### Metrics Pipeline
+
+Node Exporter
+        │
+        ▼
+Prometheus
+        │
+        ▼
+Alertmanager
+        │
+        ▼
+Telegram
+
+---
 
 ## Author
 
