@@ -1,0 +1,6 @@
+---
+- name: Create manifest workspace
+  file:
+    path: "{{ manifest_workspace }}"
+    state: directory
+    mode: "0755"

@@ -1,0 +1,13 @@
+---
+- name: Generate namespace manifest
+  template:
+    src: namespace.yaml.j2
+    dest: "{{ manifest_workspace }}/namespace.yaml"
+    mode: "0644"
+
+- name: Apply namespace manifest
+  include_role:
+    name: common
+    tasks_from: apply_manifest
+  vars:
+    manifest: "{{ manifest_workspace }}/namespace.yaml"

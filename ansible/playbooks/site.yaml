@@ -1,0 +1,7 @@
+---
+- name: Deploy Monitoring Stack
+  hosts: master
+  
+  roles:
+    - common
+    - namespace

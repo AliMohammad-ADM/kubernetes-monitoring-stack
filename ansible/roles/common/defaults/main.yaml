@@ -1,0 +1,3 @@
+manifest_workspace: /tmp/k3s-monitoring
+
+#manifest_permissions: "0644"
