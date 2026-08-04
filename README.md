@@ -29,8 +29,9 @@ The objective is to automate deployment, monitor workloads, collect logs, visual
 - [x] Grafana
 - [x] Prometheus
 - [x] Node Exporter
-- [x} Alertmanager
+- [x] Alertmanager
 - [x] Demo Applications
+- [x] Ansible Project Structure
 - [ ] Ansible Automation
 - [ ] Documentation
 - [ ] Architecture Diagram
