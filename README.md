@@ -32,7 +32,6 @@ The objective is to automate deployment, monitor workloads, collect logs, visual
 - [x] Alertmanager
 - [x] Demo Applications
 - [x] Ansible Project Structure
-- [ ] Ansible Automation
 - [ ] Documentation
 - [ ] Architecture Diagram
 - [ ] PowerPoint
