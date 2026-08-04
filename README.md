@@ -32,6 +32,7 @@ The objective is to automate deployment, monitor workloads, collect logs, visual
 - [x] Alertmanager
 - [x] Demo Applications
 - [x] Ansible Project Structure
+- [x] Namespace Automation
 - [ ] Documentation
 - [ ] Architecture Diagram
 - [ ] PowerPoint
@@ -61,6 +62,14 @@ Prometheus and Node Exporter have been successfully deployed and integrated with
 Diagnosed and resolved a cross-node Flannel networking issue caused by firewalld zone configuration on Rocky Linux.
 
 Successfully deployed Alertmanager and configured to route alerts into telegram reciever.
+
+Initialized the Ansible automation framework.
+
+Designed a reusable role structure following production-oriented practices.
+
+Implemented the first idempotent automation role for Kubernetes namespace creation.
+
+Introduced a shared `common` role to centralize deployment logic for future components.
 
 Future enhancement:
 

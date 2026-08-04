@@ -1,0 +1,11 @@
+*.retry
+
+.vscode/
+.idea/
+
+__pycache__/
+
+*.swp
+*.swo
+
+/tmp/
