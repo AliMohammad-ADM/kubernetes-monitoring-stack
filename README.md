@@ -33,6 +33,7 @@ The objective is to automate deployment, monitor workloads, collect logs, visual
 - [x] Demo Applications
 - [x] Ansible Project Structure
 - [x] Namespace Automation
+- [x] Loki Automation
 - [ ] Documentation
 - [ ] Architecture Diagram
 - [ ] PowerPoint

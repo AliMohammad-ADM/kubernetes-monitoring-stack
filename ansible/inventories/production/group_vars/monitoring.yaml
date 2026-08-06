@@ -1,1 +1,6 @@
+---
 namespace_name: monitoring
+
+# Loki
+loki_image: grafana/loki:3.6.8
+loki_storage_size: 10Gi

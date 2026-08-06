@@ -4,3 +4,9 @@
     path: "{{ manifest_workspace }}"
     state: directory
     mode: "0755"
+
+- name: Prepare kubernetes manifests
+  include_tasks: prepare_manifests.yaml
+
+- name: Apply kubernetes manifests
+  include_tasks: apply_manifests.yaml

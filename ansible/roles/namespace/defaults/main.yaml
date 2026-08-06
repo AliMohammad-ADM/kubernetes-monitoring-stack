@@ -1,1 +1,7 @@
 namespace_name: monitoring
+
+k8s_manifests:
+
+  - method: template
+    src: namespace.yaml.j2
+    dest: namespace.yaml

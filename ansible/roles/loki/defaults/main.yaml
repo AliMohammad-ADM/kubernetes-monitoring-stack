@@ -1,0 +1,22 @@
+---
+loki_image: grafana/loki:3.6.8
+
+loki_storage_size: 5Gi
+
+k8s_manifests:
+
+  - method: copy
+    src: loki-config-map.yaml
+    dest: loki-config-map.yaml
+
+  - method: template
+    src: loki-stateful-set.yaml.j2
+    dest: loki-stateful-set.yaml
+
+  - method: copy
+    src: loki-headless-service.yaml
+    dest: loki-headless-service.yaml
+
+  - method: copy
+    src: loki-service.yaml
+    dest: loki-service.yaml

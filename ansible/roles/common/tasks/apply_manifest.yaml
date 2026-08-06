@@ -1,5 +1,0 @@
-- name: Apply Kubernetes manifest
-  command:
-    cmd: /usr/local/bin/kubectl apply -f {{ manifest }}
-  register: apply_result
-  changed_when: "'created' in apply_result.stdout or 'configured' in apply_result.stdout"

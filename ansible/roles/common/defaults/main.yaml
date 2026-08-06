@@ -1,3 +1,4 @@
 manifest_workspace: /tmp/k3s-monitoring
 
-#manifest_permissions: "0644"
+kubectl_binary: /usr/local/bin/kubectl
+

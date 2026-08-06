@@ -1,0 +1,16 @@
+- name: Apply Kubernetes manifest
+  command:
+    argv:
+      - "{{ kubectl_binary }}"
+      - apply
+      - -f
+      - "{{ manifest_workspace }}/{{ item.dest }}"
+  loop: "{{ k8s_manifests }}"
+
+  register: kubectl_apply
+
+  changed_when: >
+    'created' in kubectl_apply.stdout or
+    'configured' in kubectl_apply.stdout
+
+  failed_when: kubectl_apply.rc != 0

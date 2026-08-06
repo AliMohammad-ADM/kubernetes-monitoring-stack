@@ -3,5 +3,6 @@
   hosts: master
   
   roles:
-    - common
+
     - namespace
+    - loki

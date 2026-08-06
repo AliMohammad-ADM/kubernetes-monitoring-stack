@@ -1,4 +1,4 @@
 ---
-- name: Deploy namespace manifests
+- name: Deploy Loki
   include_role:
     name: common

@@ -1,0 +1,15 @@
+---
+- name: Render jinja2 templates
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ manifest_workspace }}/{{ item.dest }}"
+    mode: "0644"
+  loop: "{{ k8s_manifests }}"
+  when: item.method == "template"
+
+- name: Copy static manifests
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ manifest_workspace }}/{{ item.dest }}"
+  loop: "{{ k8s_manifests }}"
+  when: item.method == "copy"

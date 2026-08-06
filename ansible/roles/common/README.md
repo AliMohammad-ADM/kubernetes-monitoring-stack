@@ -12,12 +12,17 @@ Current:
 
 - Create the temporary manifest workspace:
   - `/tmp/k8s-monitoring`
+  - Prepare manifests for each role
+  - Apply manifests
 
 Planned:
 
 - Verify that `kubectl` is installed and available.
 - Verify that the Kubernetes configuration (`KUBECONFIG`) is present and accessible.
-- Prepare the temporary workspace used for generated manifests.
 - Install or verify any deployment dependencies required by the automation framework.
 - Provide reusable tasks for deploying Kubernetes manifests.
+
+Done: 
+
+- Prepare the temporary workspace used for generated manifests.
 - Centralize deployment logic so component roles only describe the resources they manage.
