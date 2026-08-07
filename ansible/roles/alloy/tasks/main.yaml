@@ -1,0 +1,4 @@
+---
+- name: Deploy Grafana Alloy
+  include_role:
+    name: common

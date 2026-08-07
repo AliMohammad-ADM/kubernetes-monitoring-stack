@@ -1,0 +1,21 @@
+k8s_manifests:
+
+  - method: copy
+    src: alloy-service-account.yaml
+    dest: alloy-service-account.yaml
+
+  - method: copy
+    src: alloy-cluster-role.yaml
+    dest: alloy-cluster-role.yaml
+
+  - method: copy
+    src: alloy-cluster-role-binding.yaml
+    dest: alloy-cluster-role-binding.yaml
+
+  - method: copy
+    src: alloy-config-map.yaml
+    dest: alloy-config-map.yaml
+
+  - method: template
+    src: alloy-daemon-set.yaml.j2
+    dest: alloy-daemon-set.yaml

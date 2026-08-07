@@ -1,8 +1,9 @@
 ---
 - name: Deploy Monitoring Stack
-  hosts: master
+  hosts: localhost
   
   roles:
 
     - namespace
     - loki
+    - alloy

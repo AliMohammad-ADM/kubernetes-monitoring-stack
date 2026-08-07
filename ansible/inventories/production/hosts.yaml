@@ -1,4 +1,5 @@
-[cluster]
+[monitoring]
+localhost ansible_connection=local
 worker1
 worker2
 worker3

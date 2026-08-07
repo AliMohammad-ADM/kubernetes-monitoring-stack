@@ -34,6 +34,7 @@ The objective is to automate deployment, monitor workloads, collect logs, visual
 - [x] Ansible Project Structure
 - [x] Namespace Automation
 - [x] Loki Automation
+- [x] Grafana Alloy Automation
 - [ ] Documentation
 - [ ] Architecture Diagram
 - [ ] PowerPoint
