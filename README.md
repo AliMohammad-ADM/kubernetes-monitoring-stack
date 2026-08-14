@@ -116,7 +116,7 @@ The Kubernetes manifests are deployed through an Ansible automation framework.
 
 Each application has its own role. The application role only describes the manifests that need to be deployed and which method should be used for each file.
 
-he reusable deployment logic is handled by the `common` role.
+The reusable deployment logic is handled by the `common` role.
 
 ![Ansible-Automation](docs/diagrams/04-Ansible-Automation.png)
 
@@ -203,7 +203,7 @@ telegram_bot_token: "..."
 telegram_chat_id: "..."
 ```
 
-he Telegram credentials are currently stored as Ansible variables but are **not vaulted yet**.
+The Telegram credentials are currently stored as Ansible variables but are **not vaulted yet**.
 
 Using Ansible Vault is planned as a future improvement.
 
@@ -332,6 +332,17 @@ kubernetes-monitoring-stack/
 │   ├── diagrams/
 │   └── screenshots/
 │
+├── kubernetes/
+│   ├── alertmanager/
+│   ├── alloy/
+│   ├── demo-app/
+│   ├── grafana/
+│   ├── loki/
+│   ├── namespaces/
+│   ├── node-exporter/
+│   ├── prometheus/
+│   └── storage/
+│
 └── README.md
 ```
 
@@ -378,5 +389,5 @@ Current limitations include:
 - When to use Ansible copy and template.
 - How to use variables instead of hard-coding configuration.
 - How to test Ansible idempotency.
--How to debug automation failures and understand why they occur.
+- How to debug automation failures and understand why they occur.
 
