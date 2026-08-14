@@ -1,0 +1,123 @@
+apiVersion: apps/v1
+kind: StatefulSet
+
+metadata:
+  name: alertmanager
+  namespace: monitoring
+
+spec:
+  serviceName: alertmanager-headless
+
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: alertmanager
+
+  template:
+    metadata:
+      labels:
+        app: alertmanager
+
+    spec:
+      serviceAccountName: alertmanager
+
+      initContainers:
+        - name: generate-config
+
+          image: alpine:3.22
+
+          command:
+            - /bin/sh
+            - -c
+
+          args:
+            - |
+              apk add --no-cache gettext
+
+              envsubst \
+              < /etc/alertmanager-template/alertmanager.yml.tpl \
+              > /etc/alertmanager-generated/alertmanager.yml
+
+          env:
+            - name: TELEGRAM_BOT_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: alertmanager-secret
+                  key: TELEGRAM_BOT_TOKEN
+
+            - name: TELEGRAM_CHAT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: alertmanager-secret
+                  key: TELEGRAM_CHAT_ID
+
+          volumeMounts:
+            - name: config
+              mountPath: /etc/alertmanager-template
+
+            - name: generated-config
+              mountPath: /etc/alertmanager-generated
+
+      containers:
+        - name: alertmanager
+
+          image: {{ alert_manager_image }}
+
+          imagePullPolicy: IfNotPresent
+
+          args:
+            - --config.file=/etc/alertmanager-generated/alertmanager.yml
+            - --storage.path=/alertmanager
+
+          ports:
+            - name: http
+              containerPort: 9093
+
+          readinessProbe:
+            httpGet:
+              path: /-/ready
+              port: 9093
+
+            initialDelaySeconds: 15
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 3
+
+          livenessProbe:
+            httpGet:
+              path: /-/healthy
+              port: 9093
+
+            initialDelaySeconds: 30
+            periodSeconds: 15
+            timeoutSeconds: 5
+            failureThreshold: 3
+
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+
+            limits:
+              cpu: 300m
+              memory: 256Mi
+
+          volumeMounts:
+            - name: generated-config
+              mountPath: /etc/alertmanager-generated
+
+            - name: storage
+              mountPath: /alertmanager
+
+      volumes:
+        - name: config
+          configMap:
+            name: alertmanager-config
+
+        - name: generated-config
+          emptyDir: {}
+
+        - name: storage
+          persistentVolumeClaim:
+            claimName: alertmanager-pvc

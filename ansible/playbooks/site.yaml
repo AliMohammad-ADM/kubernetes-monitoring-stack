@@ -7,3 +7,7 @@
     - namespace
     - loki
     - alloy
+    - grafana
+    - node-exporter
+    - prometheus
+    - alert-manager

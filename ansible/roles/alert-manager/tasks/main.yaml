@@ -1,0 +1,4 @@
+---
+- name: Deploy Alertmanager
+  include_role:
+    name: common

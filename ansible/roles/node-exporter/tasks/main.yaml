@@ -1,0 +1,4 @@
+---
+- name: Deploy Node Exporter
+  include_role:
+    name: common

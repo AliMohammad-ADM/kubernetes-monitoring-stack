@@ -1,0 +1,14 @@
+---
+k8s_manifests:
+
+  - method: template
+    src: grafana-deployment.yaml.j2
+    dest: grafana-deployment.yaml
+
+  - method: template
+    src: grafana-pvc.yaml.j2
+    dest: grafana-pvc.yaml
+
+  - method: copy
+    src: grafana-service.yaml
+    dest: grafana-service.yaml

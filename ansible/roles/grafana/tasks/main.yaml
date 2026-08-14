@@ -1,0 +1,4 @@
+---
+- name: Deploy Grafana
+  include_role:
+    name: common

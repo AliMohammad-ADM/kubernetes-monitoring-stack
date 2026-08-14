@@ -1,0 +1,22 @@
+---
+k8s_manifests:
+
+  - method: template
+    src: node-exporter-daemonset.yaml.j2
+    dest: node-exporter-daemonset.yaml
+
+  - method: copy
+    src: node-exporter-service-account.yaml
+    dest: node-exporter-service-account.yaml
+
+  - method: copy
+    src: node-exporter-cluster-role.yaml
+    dest: node-exporter-cluster-role.yaml
+
+  - method: copy
+    src: node-exporter-cluster-role-binding.yaml 
+    dest: node-exporter-cluster-role-binding.yaml
+
+  - method: copy
+    src: node-exporter-service.yaml
+    dest: node-exporter-service.yaml

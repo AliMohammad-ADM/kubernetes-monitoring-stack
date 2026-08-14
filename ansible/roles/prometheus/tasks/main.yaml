@@ -1,0 +1,4 @@
+---
+- name: Deploy Prometheus
+  include_role:
+    name: common

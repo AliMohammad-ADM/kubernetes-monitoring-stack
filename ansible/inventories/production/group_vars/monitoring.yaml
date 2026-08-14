@@ -7,3 +7,24 @@ loki_storage_size: 10Gi
 
 # Grafana Alloy
 alloy_image: grafana/alloy:v1.17.1
+
+# Grafana
+grafana_image: grafana/grafana:12.1.1
+grafana_storage_size: 1Gi
+
+# Node Exporter
+#node_exporter_image: ghcr.io/prometheus/node_exporter:v1.12.1
+node_exporter_image: quay.io/prometheus/node_exporter:v1.12.1
+
+# Prometheus
+prometheus_image: ghcr.io/prometheus/prometheus:v3.13.1
+prometheus_storage_size: 5Gi
+
+# Alertmanager
+alert_manager_image: ghcr.io/prometheus/alertmanager:latest
+#alert_manager_image: quay.io/prometheus/alertmanager:v0.33.1
+alert_manager_storage_size: 2Gi
+
+# Uncommect and add the values
+#telegram_bot_token:
+#telegram_chat_id:

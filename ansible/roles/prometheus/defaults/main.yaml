@@ -1,0 +1,38 @@
+---
+k8s_manifests:
+
+  - method: copy
+    src: prometheus-service-account.yaml
+    dest: prometheus-service-account.yaml
+
+  - method: copy
+    src: prometheus-cluster-role.yaml
+    dest: prometheus-cluster-role.yaml
+ 
+  - method: copy
+    src: prometheus-cluster-role-binding.yaml
+    dest: prometheus-cluster-role-binding.yaml
+
+  - method: copy
+    src: prometheus-headless-service.yaml
+    dest: prometheus-headless-service.yaml
+
+  - method: copy
+    src: prometheus-service.yaml
+    dest: prometheus-service.yaml
+
+  - method: copy
+    src: prometheus-config-map.yaml
+    dest: prometheus-config-map.yaml
+
+  - method: copy
+    src: prometheus-alert-rules.yaml
+    dest: prometheus-alert-rules.yaml
+
+  - method: template
+    src: prometheus-pvc.yaml.j2
+    dest: prometheus-pvc.yaml
+
+  - method: template
+    src: prometheus-statefulset.yaml.j2
+    dest: prometheus-statefulset.yaml

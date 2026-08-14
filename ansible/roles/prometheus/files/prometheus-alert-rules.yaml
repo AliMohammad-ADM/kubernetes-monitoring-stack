@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: ConfigMap
+
+metadata:
+  name: prometheus-alert-rules
+  namespace: monitoring
+
+data:
+  alert-rules.yml: |
+    groups:
+      - name: test-alerts
+
+        rules:
+
+          - alert: TestAlert
+
+            expr: vector(1)
+
+            for: 30s
+
+            labels:
+              severity: info
+
+            annotations:
+              summary: "Test Alert"
+
+              description: "This is a test alert from Prometheus."

@@ -1,0 +1,30 @@
+---
+k8s_manifests:
+
+  - method: copy
+    src: alert-manager-config-map.yaml
+    dest: alert-manager-config-map.yaml
+
+  - method: copy
+    src: alert-manager-service-account.yaml
+    dest: alert-manager-service-account.yaml
+
+  - method: copy
+    src: alert-manager-headless-service.yaml
+    dest: alert-manager-headless-service.yaml
+
+  - method: copy
+    src: alert-manager-service.yaml
+    dest: alert-manager-service.yaml
+
+  - method: template
+    src: alert-manager-pvc.yaml.j2
+    dest: alert-manager-pvc.yaml
+
+  - method: template
+    src: alert-manager-secret.yaml.j2
+    dest: alert-manager-secret.yaml
+
+  - method: template
+    src: alert-manager-statefulset.yaml.j2
+    dest: alert-manager-statefulset.yaml
