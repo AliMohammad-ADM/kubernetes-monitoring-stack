@@ -108,6 +108,8 @@ It is used to:
 
 ![Dashboard](docs/screenshots/Day08/05-loki-logs-dashboard.png)
 
+![Dashboard](docs/screenshots/Day13/02-grafana-metircs-dashboard.png)
+
 ---
 
 ## Ansible Automation
