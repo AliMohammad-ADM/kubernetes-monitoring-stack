@@ -25,6 +25,6 @@ alert_manager_image: ghcr.io/prometheus/alertmanager:latest
 #alert_manager_image: quay.io/prometheus/alertmanager:v0.33.1
 alert_manager_storage_size: 2Gi
 
-# Uncommect and add the values
+# Uncomment and add the values
 #telegram_bot_token:
 #telegram_chat_id:
