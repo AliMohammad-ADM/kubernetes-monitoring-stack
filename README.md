@@ -231,6 +231,8 @@ Clone the repository on the K3s control-plane node and enter the Ansible project
 cd kubernetes-monitoring-stack/ansible
 ```
 
+Add your `telegram_bot_token` & `telegram_chat_id` to **`inventories/production/group_vars/monitoring.yaml`**
+
 Run:
 
 ```Bash
